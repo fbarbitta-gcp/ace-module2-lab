@@ -76,7 +76,7 @@ export function getUserProfile () {
       })
 
       let compiledTemplate = fn(user)
-      compiledTemplate = compiledTemplate.replace(/_username_/g, () => user.username ?? '')
+      compiledTemplate = compiledTemplate.replace(/_username_/g, () => entities.encode(user.username ?? ''))
 
       res.send(compiledTemplate)
     } catch (err) {
